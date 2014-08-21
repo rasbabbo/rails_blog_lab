@@ -1,0 +1,12 @@
+Hola Mundo!!!
+
+<% @posts.each do |post| %>
+	<div>
+		<h2> <%= post.title %> </h2>
+		<p> <%= post.description %></p>
+		<p> <%= post.author %> </p>
+		<p><%= post.tags.map(&:name) %></p>
+		<a href="/posts/ <%= post.id %>">Show</a>
+	</div>
+<% end %>
+
