@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 	end
 
 	def new
+		@post = Post.new
 	end
 
 	def create
@@ -27,12 +28,31 @@ class PostsController < ApplicationController
 		redirect_to "/posts"
 	end
 
+	def update
+		post_id = params[:id]
+		post = Post.find(post_id)
+
+		updated_params = params.require(:post).permit(:title, :description, :author)
+		post.update_attributes(updated_params)
+		redirect_to "/posts"
+	end
+
 
 
 	def show
 		id = params[:id]
 		@post = Post.find(id)
+		@tag = @post.tags
 	end
 
+	def destroy
+		post_id = params[:id]
+		post = Post.find(post_id)
+		if post
+			post.destroy
+		end
+			redirect_to "/posts"
+	end
 
+	
 end

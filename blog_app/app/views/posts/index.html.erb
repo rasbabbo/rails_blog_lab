@@ -7,6 +7,8 @@ Hola Mundo!!!
 		<p> <%= post.author %> </p>
 		<p><%= post.tags.map(&:name) %></p>
 		<a href="/posts/ <%= post.id %>">Show</a>
+		<%= button_to "Delete this", post_path(post), method: :delete %>
+
 	</div>
 <% end %>
 
