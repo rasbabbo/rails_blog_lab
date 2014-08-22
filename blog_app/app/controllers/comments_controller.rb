@@ -1,22 +1,22 @@
 class CommentsController < ApplicationController
   def index
-    post_id = params[:post_id]
-    @post = Post.find(post_id)
+    find_post_id
     @comments = @post.comments
   end
 
   def create
-    post_id = params[:post_id]
-    @post = Post.find(post_id)
+    find_post_id
 
-    new_comment = params.require(:comment).permit(:)
-    redirect_to post_comment_path(@postid, @comment)
+    new_comment = params[:comment].permit(:name, :description)
+    @comment = find_post_id.comments.create(new_comment)
+
+    page_comment = Comment.find(find_post_id)
+    redirect_to find_post_id
   end
 
   def new
-    post_id = params[:post_id]
-    @post = Post.find(post_id)
-    @comments = @post.comments.new
+    find_post_id
+    @comment = @post.comments.new
   end
 
   def edit
@@ -33,4 +33,10 @@ class CommentsController < ApplicationController
 
   def destroy
   end
+
+  def find_post_id
+    post_id = params[:post_id]
+    @post = Post.find(post_id)
+  end
+
 end

@@ -1,9 +1,10 @@
 hola mofos!
-
+<div class="container">
 <%= form_for @post do |f| %>
 		<%= f.text_field :author, placeholder: "enter name" %>
 		<%= f.text_field :title, placeholder: "title" %>
 		<%= f.text_area :description, placeholder: "description" %>
 		<%= f.submit "save post" %>
+		</div>
 
 	<% end %>

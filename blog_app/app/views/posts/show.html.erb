@@ -3,6 +3,7 @@
 <p> <%= @post.author %> </p>
 <p> <%= @post.description %> </p>
 <p> <%= @post.tags.map(&:name) %> </p>
+<a href="/posts/<%= @post.id %>/comments/new">Comments</a>
 
 
 
