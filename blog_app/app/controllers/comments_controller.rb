@@ -8,9 +8,8 @@ class CommentsController < ApplicationController
     find_post_id
 
     new_comment = params[:comment].permit(:name, :description)
-    @comment = find_post_id.comments.create(new_comment)
+    @comment = @post.comments.create(new_comment)
 
-    page_comment = Comment.find(find_post_id)
     redirect_to find_post_id
   end
 
