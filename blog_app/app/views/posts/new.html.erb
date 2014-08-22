@@ -1,18 +1,9 @@
-<!-- <form action="/posts" method="post">
-	<input type="text" name="post[title]" placeholder="title">
-	<input type="text" name="post[description]" placeholder="description">
-	<input type="text" name="tag[name]" placeholder="tag">
-	<textarea name="post[author]" placeholder="author"></textarea>
-	<%= token_tag form_authenticity_token %>
-
-	<button> Save Da' Post!</button>
-</form> -->
+hola mofos!
 
 <%= form_for @post do |f| %>
 		<%= f.text_field :author, placeholder: "enter name" %>
 		<%= f.text_field :title, placeholder: "title" %>
 		<%= f.text_area :description, placeholder: "description" %>
-		<%= f.text_field :tag, placeholder: "tag" %>
 		<%= f.submit "save post" %>
-	<% end %>
 
+	<% end %>
