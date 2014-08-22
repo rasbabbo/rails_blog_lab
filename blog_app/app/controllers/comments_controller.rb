@@ -22,8 +22,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    post_id = params[:post_id]
-    @post = Post.find(post_id)
+    find_post_id
     @comment = @post.comments.find(params[:id])
   end
 
